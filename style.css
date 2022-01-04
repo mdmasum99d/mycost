@@ -1,0 +1,139 @@
+  *{
+        margin: 0;
+        padding: 0;
+        outline: 0;
+    }
+    ul{
+        list-style:none;
+    }
+    a{
+        text-decoration: none;
+    }
+    #header{
+        background-color: #fff;
+    }
+    .all_box{
+        display: flex;
+        border-bottom: 1px solid #ddd;
+        background-color: #04AA6D;
+    }
+    .menu{
+        width: auto;
+    }
+    .menu ul a{
+        color: #fff;
+        font-size: 20px;
+        padding: 10px 30px;
+        display: block;
+        border-bottom: 1px solid #ddd;
+        transition: .3s;
+    }
+    .menu ul a:hover{
+        background-color: brown;
+    }
+    .cost{
+        width: 40%;
+        padding: 20px;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+    .cost h1{
+        text-align: center;
+        color: #ffff;
+        margin-bottom: 50px;
+    }
+    .masum_body{
+        width: 60%;
+        margin: 0 auto;
+    }
+    .single_div{
+        width: 100%;
+    }
+    .single_div input{
+        width: 80%;
+        padding: 7px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+    }
+    .single_div textarea{
+        margin-bottom: 10px;
+        width: 80%;
+        padding: 5px;
+        border-radius: 5px;
+
+    }
+    .single_div select{
+        width: 85%;
+        border-radius: 5px;
+        padding: 7px;
+        margin-bottom: 10px;
+    }
+    .button input{
+        margin-top: 10px;
+        padding: 10px 50px;
+        margin-left: 60px;
+        text-transform: uppercase;
+        border-radius: 20px;
+        border: none;
+        transition: all linear .3s;
+    }
+    .button input:hover{
+        background-color: brown;
+        color: #fff;
+        border-radius: 0;
+        padding: 10px 100px;
+        margin-left: 10px;
+    }
+    .data_menu{
+        padding:20px;
+        border-bottom:1px solid #ddd;
+    }
+    .deposit_history{
+        margin:0 auto;
+        color:#ddd;
+        padding:20px
+    }
+    .history_amount{
+        display:grid;
+        grid-template-columns: auto auto;
+        grid-row-gap: 20px;
+        grid-column-gap: 10px;
+        margin:20px 0;
+    }
+    .single_history p{
+        font-size:22px;
+        font-weight:bold;
+        border:1px solid #fff;
+        padding:10px
+    }
+    #c_m{
+        background:red;
+    }
+    #d_m{
+        background:green;
+    }
+    /* table css */
+            #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+        }
+
+        #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+        #customers tr:hover {background-color: #ddd;}
+
+        #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        background-color: #04AA6D;
+        color: white;
+        }
+        /* table css end */
