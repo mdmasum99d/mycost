@@ -183,6 +183,7 @@
                     <th>Amount</th>
                     <th>Date</th>
                     <th>Action</th>
+                    <th>Recipt</th>
                 </tr>
                 <tr>
                     <?php
@@ -201,6 +202,7 @@
                     <td><?=$row['amount'];?></td>
                     <td><?=$row['date'];?></td>
                     <td><a href="delete.php?c_id=<?=$row['c_id'];?>" style="background:red;padding:5px 10px;color:#fff;">Delete</a></td>
+                    <td><a href="cprint.php?c_id=<?=$row['c_id'];?>" style="background:#3498db;padding:5px 10px;color:#fff;" target="blank">Print</a></td>
                 </tr>
                 <?php
                        }

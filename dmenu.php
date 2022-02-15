@@ -15,6 +15,9 @@
                 <li><a href="decategory.php?category=Cov_Rasel">Cov_Rasel</a></li>
                 <li><a href="decategory.php?category=Fruit">Business</a></li>
                 <li><a href="decategory.php?category=Covid_Hum">Covid_Hum</a></li>
+                <li><a href="decategory.php?category=Covid_AZIZ">Covid_AZIZ</a></li>
+                <li><a href="decategory.php?category=Covid_Nazrul">Covid_Nazrul</a></li>
+                <li><a href="decategory.php?category=Covid_Jolil">Covid_Jolil</a></li>
                 <li><a href="decategory.php?category=Deposit_Person">Deposit_Person</a></li>
                 <li><a href="decategory.php?category=Other">Other</a></li>                 
             </ul>

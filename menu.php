@@ -31,6 +31,12 @@
                 <li><a href="month.php?month=Feb-22">Feb-22</a></li>               
             </ul>
         </li>
+        <li><a href="#">History</a>
+            <ul>
+                <li><a href="dailyCost.php">Cost History</a></li>
+                <li><a href="dailyDeposit.php">Deposit History</a></li>
+            </ul>
+        </li>
     </ul>
 </div>
 <style>

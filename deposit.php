@@ -44,7 +44,7 @@
         <li><a href="product.php">Product</a></li>
         <li><a href="index.php">Cost</a></li>
         <li><a href="deposit.php">Deposit</a></li>
-        <li><a href="#">History</a>
+        <li><a href="#">Category</a>
             <ul>
                 <li><a href="decategory.php?category=Salary">Salary</a></li>
                 <li><a href="decategory.php?category=Covid">Covid</a></li>
@@ -53,17 +53,29 @@
                 <li><a href="decategory.php?category=Relative">Relative</a></li>
                 <li><a href="decategory.php?category=Cov_Bokul">Cov_Bokul</a></li>
                 <li><a href="decategory.php?category=Cov_Rasel">Cov_Rasel</a></li>
-                <li><a href="decategory.php?category=Fruit">Business</a></li>
+                <li><a href="decategory.php?category=Business">Business</a></li>
                 <li><a href="decategory.php?category=Covid_Hum">Covid_Hum</a></li>
+                <li><a href="decategory.php?category=Covid_AZIZ">Covid_AZIZ</a></li>
+                <li><a href="decategory.php?category=COVID_BAPPI">COVID_BAPPI</a></li>
+                <li><a href="decategory.php?category=COVID_DERAS">COVID_DERAS</a></li>
+                <li><a href="decategory.php?category=Covid_Nazrul">Covid_Nazrul</a></li>
+                <li><a href="decategory.php?category=Covid_Jolil">Covid_Jolil</a></li>
+                <li><a href="decategory.php?category=Covid_Tarek">Covid_Tarek</a></li>
                 <li><a href="decategory.php?category=Deposit_Person">Deposit_Person</a></li>
                 <li><a href="decategory.php?category=Other">Other</a></li>                 
             </ul>
         </li>
         <li><a href="#">Month History</a>
-        <ul>
+            <ul>
                 <li><a href="dmonth.php?month=Dec-21">Dec-21</a></li>
                 <li><a href="dmonth.php?month=Jan-22">Jan-22</a></li>               
                 <li><a href="dmonth.php?month=Feb-22">Feb-22</a></li>               
+            </ul>
+        </li>
+        <li><a href="#">History</a>
+            <ul>
+                <li><a href="dailyCost.php">Cost History</a></li>
+                <li><a href="dailyDeposit.php">Deposit History</a></li>
             </ul>
         </li>
     </ul>
@@ -108,6 +120,14 @@
                                 <option value="Cov_Rasel">Cov_Rasel</option>
                                 <option value="Business">Business</option>
                                 <option value="Covid_Hum">Covid_Hum</option>
+                                <option value="Covid_Hum">Covid_Hum</option>
+                                <option value="Covid_Azom">Covid_Azom</option>
+                                <option value="Covid_AZIZ">Covid_AZIZ</option>
+                                <option value="COVID_BAPPI">COVID_BAPPI</option>
+                                <option value="COVID_DERAS">COVID_DERAS</option>
+                                <option value="Covid_Nazrul">Covid_Nazrul</option>
+                                <option value="Covid_Tarek">Covid_Tarek</option>
+                                <option value="Covid_Jolil">Covid_Jolil</option>
                                 <option value="Deposit_Person">Deposit_Person</option>
                                 <option value="Other">Other</option>
                             </select>
@@ -218,6 +238,7 @@
                     <th>Amount</th>
                     <th>Date</th>
                     <th>Action</th>
+                    <th>Recipt</th>
                 </tr>
                 <tr>
                     <?php
@@ -234,7 +255,9 @@
                     <td><?=$row['category'];?></td>
                     <td><?=$row['amount'];?></td>
                     <td><?=$row['time'];?></td>
-                    <td><a href="delete.php?d_id=<?=$row['d_id'];?>" style="background:red;padding:5px 10px;color:#fff;">Delete</a></td>
+                    <td><a href="delete.php?d_id=<?=$row['d_id'];?>" style="background:red;padding:5px 10px;color:#fff;">Delete</a>
+                    </td>
+                    <td><a href="print.php?d_id=<?=$row['d_id'];?>" style="background:#3498db;padding:5px 10px;color:#fff;" target="blank">Print</a></td>
                 </tr>
                 <?php
                        }
