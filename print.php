@@ -27,9 +27,9 @@
         $pdf->cell(50.5,10,"Invoice Date ",0,0);
         $pdf->cell(50.5,10,": {$time}",0,1);
         $pdf->cell(50.5,10,"Subject ",0,0);
-        $pdf->cell(50.5,10,": {$subject}",0,0);
+        $pdf->cell(50.5,10,": {$subject}",0,1);
         $pdf->cell(50.5,10,"Category ",0,0);
-        $pdf->cell(50.5,10,": {$category}",0,1);
+        $pdf->cell(50.5,10,": {$category}",0,0);
         $pdf->cell(50.5,10,"AMOUNT ",0,0);
         $pdf->cell(50.5,10,": {$amount}",0,1);
         $pdf->cell(50.5,10,"Please Contact",0,1);

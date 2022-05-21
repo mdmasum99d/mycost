@@ -6,20 +6,19 @@
         <li><a href="deposit.php">Deposit</a></li>
         <li><a href="#">History</a>
             <ul>
-                <li><a href="decategory.php?category=Salary">Salary</a></li>
-                <li><a href="decategory.php?category=Covid">Covid</a></li>
-                <li><a href="decategory.php?category=Extra_Fack">Extra_Fack</a></li>
-                <li><a href="decategory.php?category=Abbu">Abbu</a></li>
-                <li><a href="decategory.php?category=Relative">Relative</a></li>
-                <li><a href="decategory.php?category=Cov_Bokul">Cov_Bokul</a></li>
-                <li><a href="decategory.php?category=Cov_Rasel">Cov_Rasel</a></li>
-                <li><a href="decategory.php?category=Fruit">Business</a></li>
-                <li><a href="decategory.php?category=Covid_Hum">Covid_Hum</a></li>
-                <li><a href="decategory.php?category=Covid_AZIZ">Covid_AZIZ</a></li>
-                <li><a href="decategory.php?category=Covid_Nazrul">Covid_Nazrul</a></li>
-                <li><a href="decategory.php?category=Covid_Jolil">Covid_Jolil</a></li>
-                <li><a href="decategory.php?category=Deposit_Person">Deposit_Person</a></li>
-                <li><a href="decategory.php?category=Other">Other</a></li>                 
+            <?php
+                $sql = "SELECT * FROM dback";
+                $query = mysqli_query($conn,$sql);
+                    if($query){
+                        if(mysqli_num_rows($query)>0){
+                          while($row=mysqli_fetch_assoc($query)){
+            ?>
+            <li><a href="decategory.php?category=<?=$row['deposit'];?>"><?=$row['deposit'];?></a></li>
+            <?php
+                }
+                    }
+                     }
+            ?>
             </ul>
         </li>
         <li><a href="#">Month</a>

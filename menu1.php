@@ -6,22 +6,19 @@
         <li><a href="deposit.php">Deposit</a></li>
         <li><a href="#">Category</a>
             <ul>
-                <li><a href="category.php?category=House">House</a></li>
-                <li><a href="category.php?category=Mes">Mes</a></li>
-                <li><a href="category.php?category=Vara">Vara</a></li>
-                <li><a href="category.php?category=Versity">Versity</a></li>
-                <li><a href="category.php?category=Education">Education</a></li>
-                <li><a href="category.php?category=Fast_Food">Fast_Food</a></li>
-                <li><a href="category.php?category=Food">Food</a></li>
-                <li><a href="category.php?category=Fruit">Fruit</a></li>
-                <li><a href="category.php?category=Market">Market</a></li>
-                <li><a href="category.php?category=Family">Family</a></li>
-                <li><a href="category.php?category=Mobile_load">Mobile_load</a></li>                  
-                <li><a href="category.php?category=Medicine">Medicine</a></li>                  
-                <li><a href="category.php?category=Electic">Electic</a></li>                  
-                <li><a href="category.php?category=Course">Course</a></li>                  
-                <li><a href="category.php?category=Business">Business</a></li>                  
-                <li><a href="category.php?category=Other">Other</a></li>                  
+                <?php
+                    $sql = "SELECT * FROM cback";
+                    $query = mysqli_query($conn,$sql);
+                        if($query){
+                            if(mysqli_num_rows($query)>0){
+                            while($row=mysqli_fetch_assoc($query)){
+                ?>
+                <li><a href="category.php?category=<?=$row['cost'];?>"><?=$row['cost'];?></a></li>
+                <?php
+                    }
+                        }
+                        }
+                ?>
             </ul>
         </li>
         <li><a href="#">Month</a>

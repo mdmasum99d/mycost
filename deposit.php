@@ -1,17 +1,21 @@
 <?php
     include 'connection.php';
+    include 'calculator.php';
     $error='';
+    date_default_timezone_set('Asia/Dhaka');
+    $time = date('d-m-Y');
     if(isset($_POST['submit'])){
         $subject = mysqli_escape_string($conn,$_POST['subject']); 
         date_default_timezone_set('Asia/Dhaka');
         $deposit_no = date('dmyHis'); 
         $category = mysqli_escape_string($conn,$_POST['category']); 
         $amount = mysqli_escape_string($conn,$_POST['amount']); 
-        $time = date('d-m-Y');
+        $ddate = mysqli_escape_string($conn,$_POST['ddate']); 
+        
         $month = date('M-y');
         $year = date('Y');
 
-        $sql="INSERT INTO deposit(deposit_no,subject,category,amount,time,month,year)VALUES('$deposit_no','$subject','$category','$amount','$time','$month','$year')";
+        $sql="INSERT INTO deposit(deposit_no,subject,category,amount,time,month,year)VALUES('$deposit_no','$subject','$category','$amount','$ddate','$month','$year')";
         
         $query=mysqli_query($conn,$sql);
         if($query){
@@ -45,24 +49,20 @@
         <li><a href="index.php">Cost</a></li>
         <li><a href="deposit.php">Deposit</a></li>
         <li><a href="#">Category</a>
-            <ul>
-                <li><a href="decategory.php?category=Salary">Salary</a></li>
-                <li><a href="decategory.php?category=Covid">Covid</a></li>
-                <li><a href="decategory.php?category=Extra_Fack">Extra_Fack</a></li>
-                <li><a href="decategory.php?category=Abbu">Abbu</a></li>
-                <li><a href="decategory.php?category=Relative">Relative</a></li>
-                <li><a href="decategory.php?category=Cov_Bokul">Cov_Bokul</a></li>
-                <li><a href="decategory.php?category=Cov_Rasel">Cov_Rasel</a></li>
-                <li><a href="decategory.php?category=Business">Business</a></li>
-                <li><a href="decategory.php?category=Covid_Hum">Covid_Hum</a></li>
-                <li><a href="decategory.php?category=Covid_AZIZ">Covid_AZIZ</a></li>
-                <li><a href="decategory.php?category=COVID_BAPPI">COVID_BAPPI</a></li>
-                <li><a href="decategory.php?category=COVID_DERAS">COVID_DERAS</a></li>
-                <li><a href="decategory.php?category=Covid_Nazrul">Covid_Nazrul</a></li>
-                <li><a href="decategory.php?category=Covid_Jolil">Covid_Jolil</a></li>
-                <li><a href="decategory.php?category=Covid_Tarek">Covid_Tarek</a></li>
-                <li><a href="decategory.php?category=Deposit_Person">Deposit_Person</a></li>
-                <li><a href="decategory.php?category=Other">Other</a></li>                 
+        <ul>
+            <?php
+                $sql = "SELECT * FROM dback";
+                $query = mysqli_query($conn,$sql);
+                    if($query){
+                        if(mysqli_num_rows($query)>0){
+                          while($row=mysqli_fetch_assoc($query)){
+            ?>
+            <li><a href="decategory.php?category=<?=$row['deposit'];?>"><?=$row['deposit'];?></a></li>
+            <?php
+                }
+                    }
+                     }
+            ?>
             </ul>
         </li>
         <li><a href="#">Month History</a>
@@ -105,31 +105,29 @@
                 <h1>Masum Deposit Record Web</h1>
                 <div class="masum_body">
                     <form action="?" method="POST">
+                    <div class="single_div">
+                            <input type="text" value="<?=$time;?>" name="ddate" required>
+                        </div>
                         <div class="single_div">
                             <input type="text" placeholder="Subject" name="subject" required>
                         </div>
                         <div class="single_div">
                             <select name="category">
-                                <option value="0">Please Select Category</option>
-                                <option value="Salary">Salary</option>
-                                <option value="Covid">Covid</option>
-                                <option value="Extra_Fack">Extra_Fack</option>
-                                <option value="Abbu">Abbu</option>
-                                <option value="Relative">Relative</option>
-                                <option value="Cov_Bokul">Cov_Bokul</option>
-                                <option value="Cov_Rasel">Cov_Rasel</option>
-                                <option value="Business">Business</option>
-                                <option value="Covid_Hum">Covid_Hum</option>
-                                <option value="Covid_Hum">Covid_Hum</option>
-                                <option value="Covid_Azom">Covid_Azom</option>
-                                <option value="Covid_AZIZ">Covid_AZIZ</option>
-                                <option value="COVID_BAPPI">COVID_BAPPI</option>
-                                <option value="COVID_DERAS">COVID_DERAS</option>
-                                <option value="Covid_Nazrul">Covid_Nazrul</option>
-                                <option value="Covid_Tarek">Covid_Tarek</option>
-                                <option value="Covid_Jolil">Covid_Jolil</option>
-                                <option value="Deposit_Person">Deposit_Person</option>
-                                <option value="Other">Other</option>
+                                    <?php
+                                    $sql = "SELECT * FROM dback";
+                                    $query = mysqli_query($conn,$sql);
+                                    if($query){
+                                        if(mysqli_num_rows($query)>0){
+                                            while($row=mysqli_fetch_assoc($query)){
+                                                
+                                      
+                                ?>
+                                <option value="<?=$row['deposit'];?>"><?=$row['deposit'];?></option>
+                                <?php
+                                      }
+                                    }
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="single_div">
@@ -145,36 +143,13 @@
                 <h1>You Summar Cost and Deposit</h1>
                 <div class="history_amount">
                     <div class="single_history">
-                    <?php
-                        $sql = "SELECT SUM(amount) AS value_sum FROM deposit";
-                        $query = mysqli_query($conn,$sql);
-                        if($query){
-                            if(mysqli_num_rows($query)>0){
-                                while($devalue=mysqli_fetch_assoc($query)){
-                        ?>
-                        <p id="c_m">Deposit: <span><?=$devalue["value_sum"];?></span> TK</p>
-                        <?php
-                                }
-                            }
-                        }
-                       
-                ?>
+                        <p id="c_m">Deposit: <span><?=$deposit_value;?></span> TK</p>
                     </div>
                     <div class="single_history">
-                    <?php
-                        $sql = "SELECT SUM(amount) AS value_sum FROM cost";
-                        $query = mysqli_query($conn,$sql);
-                        if($query){
-                            if(mysqli_num_rows($query)>0){
-                                while($cvalue=mysqli_fetch_assoc($query)){
-                        ?>
-                        <p id="c_m">Cost: <span><?=$cvalue["value_sum"];?></span> TK</p>
-                        <?php
-                                }
-                            }
-                        }
-                       
-                ?>
+                        <p id="c_m">Cost: <span><?=$cost_value;?></span> TK</p>
+                    </div>
+                    <div class="single_history">
+                        <p style="background:black;" id="c_m">Your Balance : <span><?=$extra;?></span> TK</p>
                     </div>
                     <div class="single_history">
                         <?php
